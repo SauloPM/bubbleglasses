@@ -15,8 +15,9 @@ Colors:
 $text: dimgray;
 
 // Responsive
-$mobile: 480px;
-$tablet: 768px;
+$mobile :  480px;
+$tablet :  768px;
+$desktop: 1200px;
 
 /* ─────────────── */
 /*     GENERAL     */
@@ -263,8 +264,77 @@ hr {
 
 @media only screen and (min-width: $tablet) {
     #welcome {
-        a h1 { line-height: 200px }
-        p    { line-height: 55px  }
+        a h1 {
+            line-height: 200px;
+        }
+        p {
+            font-size: 35px;
+            line-height: 55px;
+        }
+    }
+}
+
+/* ─────────────── */
+/*     CALLOUT     */
+/* ─────────────── */
+
+/* General */
+
+#callout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(../img/bg/1.jpg) fixed center no-repeat;
+    background-size: cover;
+    position: relative;
+    min-height: 100vh;
+
+    .overlay {
+        background: black;
+        opacity: .5;
+    }
+
+    p {
+        color: white;
+        font-size: 100px;
+        font-weight: bold;
+        font-family: 'Amuba', sans-serif;
+        text-align: center;
+        text-shadow:  1px 1px  0 rgba(200,0,65, .75),
+                      2px 2px  0 rgba(200,0,65,.70),
+                      3px 3px  0 rgba(200,0,65,.65),
+                      4px 4px  0 cyan,
+                      5px 5px  0 rgba(200,0,65,.55),
+                      6px 6px  0 rgba(200,0,65,.50),
+                      7px 7px  0 rgba(200,0,65,.45),
+                      8px 8px  0 yellow,
+                      9px 9px  0 rgba(200,0,65,.35),
+                     10px 10px 0 rgba(200,0,65,.30),
+                     11px 11px 0 rgba(200,0,65,.25),
+                     12px 12px 0 lightgreen,
+                     13px 13px 0 rgba(200,0,65,.15),
+                     14px 14px 0 rgba(200,0,65,.10),
+                     15px 15px 0 rgba(200,0,65,.05);
+        line-height: 150px;
+        margin: 0;
+        position: relative;
+        z-index: 50;
+    }
+}
+
+// Mobile First
+
+@media only screen and (min-width: $tablet) {
+    #callout p {
+        font-size: 150px;
+        line-height: 250px;
+    }
+}
+
+@media only screen and (min-width: $desktop) {
+    #callout p {
+        font-size: 200px;
+        line-height: 300px;
     }
 }
 
@@ -384,56 +454,6 @@ hr {
 #reasons .card ul li:last-child {
     border-bottom: none;
     margin: 0;
-}
-
-/* ─────────────── */
-/*     CALLOUT     */
-/* ─────────────── */
-
-/* General */
-
-#callout {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: url(../img/bg/1.jpg) fixed center no-repeat;
-    background-size: cover;
-    position: relative;
-    min-height: 100vh;
-}
-
-#callout .overlay {
-    background: black;
-    opacity: .25;
-}
-
-/* Texto */
-
-#callout p {
-    color: white;
-    font-size: 200px;
-    font-weight: bold;
-    font-family: 'Amuba', sans-serif;
-    text-align: center;
-    text-shadow:  1px 1px  0 rgba(200,0,65, 75),
-                  2px 2px  0 rgba(200,0,65,.70),
-                  3px 3px  0 rgba(200,0,65,.65),
-                  4px 4px  0 cyan,
-                  5px 5px  0 rgba(200,0,65,.55),
-                  6px 6px  0 rgba(200,0,65,.50),
-                  7px 7px  0 rgba(200,0,65,.45),
-                  8px 8px  0 yellow,
-                  9px 9px  0 rgba(200,0,65,.35),
-                 10px 10px 0 rgba(200,0,65,.30),
-                 11px 11px 0 rgba(200,0,65,.25),
-                 12px 12px 0 lightgreen,
-                 13px 13px 0 rgba(200,0,65,.15),
-                 14px 14px 0 rgba(200,0,65,.10),
-                 15px 15px 0 rgba(200,0,65,.05);
-    line-height: 300px;
-    margin: 0;
-    position: relative;
-    z-index: 50;
 }
 
 /* ────────────────── */
