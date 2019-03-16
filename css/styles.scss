@@ -10,6 +10,14 @@ Colors:
 
 */
 
+// Colors
+
+$text: dimgray;
+
+// Responsive
+$mobile: 480px;
+$tablet: 768px;
+
 /* ─────────────── */
 /*     GENERAL     */
 /* ─────────────── */
@@ -34,6 +42,31 @@ p, li {
     font-size: 18px;
     line-height: 45px;
     margin-bottom: 0;
+}
+
+// Heading
+
+h1 {
+    color: black;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Amuba', sans-serif;
+    text-align: center;
+    text-transform: lowercase;
+    line-height: 125px;
+    margin: 0;
+}
+
+@media only screen and (min-width: 480px) {
+    h1 { font-size: 75px }
+}
+
+@media only screen and (min-width: 768px) {
+    h1 { font-size: 125px }
+}
+
+@media only screen and (min-width: 768px) {
+    h1 { font-size: 125px }
 }
 
 h2 {
@@ -135,6 +168,10 @@ hr {
 
 /* Utils */
 
+.no-padding {
+    padding: 0;
+}
+
 .overlay {
     position: absolute;
     top: 0;
@@ -156,134 +193,79 @@ hr {
     position: relative;
     min-height: 100vh;
 
-    // Heading
-
-    .title {
-        display: block;
-        color: black;
-        font-size: 50px;
-        font-weight: bold;
-        font-family: 'Amuba', sans-serif;
-        text-align: center;
-        text-transform: lowercase;
-        line-height: 125px;
-        margin: 0;
-    }
-
-    hr {
-        margin: -35px auto 25px;
-    }
-
-    // Image
-
-    img {
-        margin: 0 auto;
-        width: 75%;
-    }
+    h1  { color : black            }
+    hr  { margin: -35px auto 25px    }
+    img { margin: 0 auto; width: 75% }
 }
 
 // Mobile First
 
-@media only screen and (min-width: 480px) {
-
-    #header {
-
-        // Heading
-
-        .title {
-            font-size: 75px;
-        }
-        hr {
-            margin: -15px auto 25px;
-        }
-    }
-}
-
-@media only screen and (min-width: 768px) {
-
-    #header {
-
-        // Heading
-        
-        .title {
-            font-size: 125px;
-        }
-
-        hr {
-            margin: 12px auto 25px;
-        }
-    }
-}
-
-@media only screen and (min-width: 768px) {
-
-    #header {
-
-        // Heading
-
-        .title {
-            font-size: 125px;
-        }
-
-        // Image
-
-        img {
-            max-width: 40%;
-        }
-    }
+@media only screen and (min-width: $mobile) { #header hr  { margin   : -15px auto 25px } }
+@media only screen and (min-width: $tablet) {
+    #header hr  { margin   :  12px auto 25px }
+    #header img { max-width: 40%             }
 }
 
 /* ─────────────── */
 /*     WELCOME     */
 /* ─────────────── */
 
-/* General */
-
 #welcome {
     display: flex;
     align-content: center;
     justify-content: center;
     flex-direction: column;
-    padding: 0;
-    position: relative;
     min-height: 100vh;
+
+    a {
+        text-decoration: none;
+
+        h1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: purple;
+            background: purple;
+            background: linear-gradient(to right, purple, red);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding: 25px 0;
+            margin: 25px 0;
+            position: relative;
+    
+            &::after {
+                content: '';
+                display: block;
+                background: linear-gradient(to right, purple, red);
+                margin: 25px auto 0;
+                position: absolute;
+                bottom: 0;
+                width: 40%;
+                height: 2px;
+                transform: scaleX(0);
+                transition: .5s ease-in-out;
+            }
+    
+            &:hover::after { transform: scaleX(1) }
+        }
+    }
+
+    p {
+        color: $text;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 35px;
+    }
 }
 
-/* Text */
+// Mobile First
 
-#welcome h3 {
-    color: purple;
-    font-size: 150px;
-    background: purple;
-    background: linear-gradient(to right, purple, red);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    line-height: 250px;
-    margin: 50px 0;
-}
-
-#welcome h3::after {
-    content: '';
-    display: block;
-    background: linear-gradient(to right, purple, red);
-    margin: 25px auto 0;
-    width: 40%;
-    height: 2px;
-    transform: scaleX(0);
-    transition: .5s ease-in-out;
-}
-
-#welcome h3:hover::after {
-    transform: scaleX(1);
-}
-
-#welcome p {
-    color: dimgray;
-    font-size: 35px;
-    font-weight: bold;
-    line-height: 55px;
-    margin: 0 auto;
-    max-width: 1000px;
+@media only screen and (min-width: $tablet) {
+    #welcome {
+        a h1 { line-height: 200px }
+        p    { line-height: 55px  }
+    }
 }
 
 /* ─────────────── */
