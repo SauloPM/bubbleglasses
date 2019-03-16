@@ -3,58 +3,67 @@ $(document).ready(function() {
     // WOW
     new WOW().init(); 
 
-    // ──────────────── //
-    //     TRAINING     //
-    // ──────────────── //
+    // ─────────────── //
+    //     EXAMPLE     //
+    // ─────────────── //
 
-    // Timeline
-    $(document).on("click", "#example .year", function () {
+    // Selector
+    $(document).on("click", "#example .option", function () {
         
-        // We check if another timeline animation is executing previously just to prevent it to stop
-        if ($("#example .indicator").is(":animated") || $("#example .year-content").is(":animated"))
+        // We check if another animation is executing previously just to prevent it to stop
+        if ($("#example .option-content").is(":animated"))
             return;
 
-        var targetYear  = $(this).attr("data-year");
-        var currentYear = $("#example .year.active").attr("data-year");
+        // Variables
+        var targetOption   = $(this).attr("data-target");
+        var currentOption = $("#example .option.active").attr("data-target");
+        var anchoSelector = $('#example .selector').width();
 
-        // We do nothing if the user selects the same year
-        if ( currentYear == targetYear )
+        // We do nothing if the user selects the same option
+        if ( currentOption == targetOption )
             return;
 
-        // Selected year updated
-        $("#example .year.active").removeClass("active");
+        // Selected option updated
+        $("#example .option.active").removeClass("active");
         $(this).addClass("active");
 
-        // We move the indicator below the selected year
-        var position = $(this).position();
-        $("#example .indicator").animate({
-            left: position.left - 20
-        }, { duration: 500, queue: false });
+        // We move the indicator below the selected option
+        if ( targetOption == "1" )
+            $("#example .indicator").css('left', '1px');
+        if ( targetOption == "2" )
+            $("#example .indicator").css('left', (anchoSelector / 2) - 11);
+        if ( targetOption == "3" )
+            $("#example .indicator").css('left', (anchoSelector - 23 ));
 
-        // We hide the previous year content just to show the one belonging to the selected year
-        if ( currentYear < targetYear ) {
-            $("#example .year-content.active").animate(
+        // We hide all the sentences
+        $('#example .sentence').delay(5000).css('opacity', '0');
+
+        // We hide the previous option content just to show the content belonging to the selected one
+        if ( currentOption < targetOption ) {
+            $("#example .option-content.active").animate(
                 { opacity: "0", left: "-100px" },
                 { duration: 500, queue: false, done: function () {
-                    $("#example .year-content.active").css({"position" : "absolute", "left" : ""}).removeClass("active");
-                    $("#example .year-content[data-content='" + targetYear + "']").css({"position" : "relative", "right" : "-100px"}).animate(
+                    $("#example .option-content.active").css({"position" : "absolute", "left" : ""}).removeClass("active");
+                    $("#example .option-content[data-content='" + targetOption + "']").css({"position" : "relative", "right" : "-100px"}).animate(
                         { opacity: "1", right: "0" },
                         { duration: 500, done: function () {
-                            $("#example .year-content[data-content='" + targetYear + "']").css({"right" : ""}).addClass("active")
+                            $("#example .option-content[data-content='" + targetOption + "']").css({"right" : ""}).addClass("active");
+                            $('#example .sentence').delay(5000).css('opacity', '1');
                         }
                     });
                 }
             });
         }
         else {
-            $("#example .year-content.active").animate(
+            $("#example .option-content.active").animate(
                 { opacity: "0", right: "-100px" },
                 { duration: 500, queue: false, done: function () {
-                    $("#example .year-content.active").css({"position" : "absolute", "right" : ""}).removeClass("active");
-                    $("#example .year-content[data-content='" + targetYear + "']").css({"position" : "relative", "left" : "-100px"}).animate(
+                    $("#example .option-content.active").css({"position" : "absolute", "right" : ""}).removeClass("active");
+                    $("#example .option-content[data-content='" + targetOption + "']").css({"position" : "relative", "left" : "-100px"}).animate(
                         { opacity: "1", left: "0" },
                         { duration: 500, done: function () {
-                            $("#example .year-content[data-content='" + targetYear + "']").css({"left" : ""}).addClass("active")
+                            $("#example .option-content[data-content='" + targetOption + "']").css({"left" : ""}).addClass("active");
+                            $('#example .sentence').delay(5000).css('opacity', '1');
                         }
                     });
                 }

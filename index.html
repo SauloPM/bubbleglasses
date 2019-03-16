@@ -51,10 +51,10 @@
         <div class="container">
             <h1>BubbleGlasses</h1>
             <hr>
-            <h2>Your professional career just the way you want it!</h2>
+            <h3>Your professional career just the way you want it!</h3>
         </div>
         <img class="animated infinite pulse" src="img/logo.png" alt="BubbleGlasses">
-        <a class="arrow page-scroll" href="#welcome" title="Learn more"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+        <a class="page-scroll" href="#welcome" title="Learn more"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
     </section>
 
     <!-- ─────────────── -->
@@ -75,51 +75,37 @@
 
     <aside id="callout">
         <div class="overlay"></div>
-        <div class="container">
-            <p class="wow rubberBand">they are<br>super cool!</p>
-        </div>
+        <span class="wow rubberBand">they are<br>super cool!</span>
     </aside>
 
     <!-- ─────────────── -->
     <!--     EXAMPLE     -->
     <!-- ─────────────── -->
 
-    <section id="example" class="text-center" style="display: none !important">
-        <h3 class="wow fadeIn">How does it work?</h3>
-        <hr>
-        <h2>Let's see how BubbleGlasses can change your life!</h2>
+    <section id="example" class="text-center">
         <div class="container">
-            <div class="row">
-                <div class="col-xs-10 col-xs-offset-1">
-                    <div class="year-selector">
-                        <span class="horizontal-line">
-                            <span class="indicator"></span>
-                            <p class="year active" data-year="2007">Reality</p>
-                            <p class="year" data-year="2008">BubbleGlasses</p>
-                            <p class="year" data-year="2009">Other brands</p>
-                        </span>
-                    </div>
+            <h2 class="wow fadeIn">How does it work?</h2>
+            <hr>
+            <h3>Let's see how BubbleGlasses can change your life!</h3>
+            <div class="carrusel">
+                <div class="option-content active" data-content="1">
+                    <span class="sentence negative">Jose, you are sacked!</span>
+                    <img class="person" src="img/people/1.jpg" alt="">
                 </div>
-            </div>
-        </div>
-        <div class="carrusel">
-            <div class="year-content active" data-content="2007">
-                <div class="year-content-wrapper">
-                    <h3 class="title" style="color: red">jose, you are sacked!</h3>
-                    <img class="person" src="img/people/1.png" alt="">
+                <div class="option-content" data-content="2">
+                    <span class="sentence positive">Jose, you got promoted!</span>
+                    <img class="person" src="img/people/2.jpg" alt="">
                 </div>
-            </div>
-            <div class="year-content" data-content="2008">
-                <div class="year-content-wrapper">
-                    <h3 class="title" style="color: green">jose, you got promoted!</h3>
-                    <img class="person" src="img/people/2.png" alt="">
-                </div>
-            </div>
-            <div class="year-content" data-content="2009">
-                <div class="year-content-wrapper">
-                    <h3 class="title" style="color: orange">jose, you suck!</h3>
+                <div class="option-content" data-content="3">
+                    <span class="sentence confusing">Jose, you suck!</span>
                     <img class="person" src="img/people/3.jpg" alt="">
                 </div>
+            </div>
+            <div class="selector">
+                <span class="indicator"></span>
+                <span class="option active" data-target="1">Reality</span>
+                <span class="option" data-target="2">BubbleGlasses</span>
+                <span class="option" data-target="3">Other brands<span>
             </div>
         </div>
     </section>

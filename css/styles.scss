@@ -12,7 +12,8 @@ Colors:
 
 // Colors
 
-$text: dimgray;
+$text     : dimgray;
+$lightgray: rgb(225,225,225);
 
 // Responsive
 $mobile :  480px;
@@ -47,30 +48,31 @@ p, li {
 
 // Heading
 
-h1 {
+h1, h2 {
     color: black;
     font-size: 50px;
     font-weight: bold;
     font-family: 'Amuba', sans-serif;
     text-align: center;
     text-transform: lowercase;
-    line-height: 125px;
+    line-height: 75px;
     margin: 0;
 }
 
-@media only screen and (min-width: 480px) {
-    h1 { font-size: 75px }
+@media only screen and (min-width: $mobile) {
+    h1, h2 {
+        font-size: 75px;
+        line-height: 125px;
+    }
 }
 
-@media only screen and (min-width: 768px) {
-    h1 { font-size: 125px }
+@media only screen and (min-width: $tablet) {
+    h1, h2 {
+        font-size: 125px;
+    }
 }
 
-@media only screen and (min-width: 768px) {
-    h1 { font-size: 125px }
-}
-
-h2 {
+h3 {
     display: block;
     color: dimgray;
     font-size: 15px;
@@ -84,21 +86,9 @@ h2 {
 }
 
 @media only screen and (min-width: 980px) {
-    h2 {
+    h3 {
         font-size: 20px;
     }
-}
-
-h3 {
-    display: block;
-    color: lightgreen;
-    font-size: 100px;
-    font-weight: bold;
-    font-family: 'Amuba', sans-serif;
-    text-align: center;
-    text-transform: lowercase;
-    line-height: 130px;
-    margin: 0 0 50px;
 }
 
 hr {
@@ -108,28 +98,6 @@ hr {
     border: none;
     width: 75%;
     height: 1px;
-}
-
-/* Arrow */
-
-.arrow.page-scroll {
-    color: rgba(100,100,100,.25) !important;
-    font-size: 250px;
-    text-decoration: none;
-    line-height: 100px;
-    position: absolute;
-    bottom: 35px;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: .5s;
-}
-
-.arrow.page-scroll:hover {
-    color: black !important;
-}
-
-.arrow.page-scroll i {
-    line-height: 100px;
 }
 
 /* Fonts */
@@ -194,9 +162,37 @@ hr {
     position: relative;
     min-height: 100vh;
 
-    h1  { color : black            }
-    hr  { margin: -35px auto 25px    }
-    img { margin: 0 auto; width: 75% }
+    h1  {
+        color : black;
+    }
+
+    hr  {
+        margin: -35px auto 25px;
+    }
+
+    img {
+        margin: 0 auto; width: 75%;
+    }
+
+    .page-scroll {
+        color: rgba(100,100,100,.25) !important;
+        font-size: 250px;
+        text-decoration: none;
+        line-height: 100px;
+        position: absolute;
+        bottom: 35px;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: .5s;
+    
+        &:hover {
+            color: black !important;
+        }
+    
+        i {
+            line-height: 100px;
+        }
+    }
 }
 
 // Mobile First
@@ -286,6 +282,7 @@ hr {
     justify-content: center;
     background: url(../img/bg/1.jpg) fixed center no-repeat;
     background-size: cover;
+    padding: 0 25px;
     position: relative;
     min-height: 100vh;
 
@@ -294,7 +291,7 @@ hr {
         opacity: .5;
     }
 
-    p {
+    span {
         color: white;
         font-size: 100px;
         font-weight: bold;
@@ -325,18 +322,167 @@ hr {
 // Mobile First
 
 @media only screen and (min-width: $tablet) {
-    #callout p {
+    #callout span {
         font-size: 150px;
         line-height: 250px;
     }
 }
 
 @media only screen and (min-width: $desktop) {
-    #callout p {
+    #callout span {
         font-size: 200px;
         line-height: 300px;
     }
 }
+
+// ─────────────── //
+//     EXAMPLE     //
+// ─────────────── //
+
+#example {
+
+    h2 {
+        color: lightgreen;
+    }
+
+    .selector {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 1px solid $text;
+        border-radius: 25px;
+        margin: 125px auto 0;
+        max-width: 600px;
+        position: relative;
+        height: 26px;
+
+        .indicator {
+            display: block;
+            background: $lightgray;
+            border: 1px solid $text;
+            border-radius: 50%;
+            position: absolute;
+            left: 1px;
+            bottom: 1px;
+            width: 22px;
+            height: 22px;
+            transition: 1s;
+        }
+
+        .option {
+            font-size: 15px;
+            font-weight: bold;
+            text-align: left;
+            position: relative;
+            bottom: 85px;
+            width: 120px;
+            transform: rotate(-45deg);
+            transition: .5s;
+            cursor: pointer;
+
+            &.active, &:hover {
+                color: lightgreen;
+            }
+        }
+    }
+
+    .carrusel {
+        position: relative;
+        overflow: hidden;
+
+        .option-content {
+            position: absolute;
+            opacity: 0;
+
+            &:first-child {
+                position: relative;
+                opacity: 1;
+
+                .sentence {
+                    opacity: 1;
+                }
+            }
+            
+            .sentence {
+                font-size: 18px;
+                background: white;
+                border-radius: 5px;
+                white-space: nowrap;
+                padding: 15px 30px;
+                margin: 0;
+                position: absolute;
+                top: 0;
+                left: 50px;
+                opacity: 0;
+                transition: .5s;
+
+                &::before {
+                    content: '';
+                    display: block;
+                    background: white;
+                    position: absolute;
+                    top: 19px;
+                    left: -9px;
+                    width: 15px;
+                    height: 15px;
+                    transform: rotate(45deg);
+                }
+
+                &.positive { 
+                    color: green;
+                    border: 2px solid green;
+
+                    &::before {
+                        border-left: 2px solid green;
+                        border-bottom: 2px solid green;
+                    }
+                }
+
+                &.negative { 
+                    color: red;
+                    border: 2px solid red;
+
+                    &::before {
+                        border-left: 2px solid red;
+                        border-bottom: 2px solid red;
+                    }
+                }
+
+                &.confusing { 
+                    color: orange;
+                    border: 2px solid orange;
+
+                    &::before {
+                        border-left: 2px solid orange;
+                        border-bottom: 2px solid orange;
+                    }
+                }
+            }
+        
+            .person {
+                margin: 75px auto 0;
+                width: 100%;
+                max-width: 500px;
+            }
+        }
+    }
+}
+
+// Mobile First
+
+@media only screen and (min-width: $tablet) {
+    #example .carrusel .option-content {
+        .sentence {
+            font-size: 25px;
+            top: 50px;
+        }
+        .person {
+            margin: 0 auto;
+        }
+    }
+}
+
+reducir fuente y cambiar posicion vertical
 
 /* ─────────────── */
 /*     REASONS     */
@@ -526,107 +672,7 @@ hr {
     transform: translateX(-50%);
 }
 
-/* ──────────────── */
-/*     TRAINING     */
-/* ──────────────── */
 
-/* General */
-
-#example {
-    position: relative;
-    padding-bottom: 0;
-}
-
-/* Heading */
-
-#example h3 {
-    color: black;
-}
-
-#example hr {
-    position: relative;
-    z-index: 25;
-}
-
-/* Year selector */
-
-#example .year-selector .horizontal-line {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(to right, transparent, rgb(0,0,0,.25) 5%, black, rgb(0,0,0,.25) 95%, transparent);
-    margin: 75px 0 50px;
-    position: relative;
-    width: 100%;
-    height: 1px;
-}
-
-#example .year-selector .horizontal-line .indicator {
-    content: '';
-    display: inline-block;
-    background: white;
-    border: 1px solid black;
-    border-radius: 50%;
-    position: absolute;
-    left: 240px;
-    top: -6px;
-    width: 12px;
-    height: 12px;
-    opacity: 1;
-}
-
-#example .year-selector .horizontal-line .year {
-    display: block;
-    color: black;
-    font-size: 15px;
-    font-weight: 900;
-    text-align: left;
-    text-transform: uppercase;
-    margin: 0 -30px 75px;
-    position: relative;
-    bottom: 25px;
-    width: 200px;
-    cursor: pointer;
-    transform: rotate(-25deg);
-    transition: .5s;
-}
-
-#example .year-selector .horizontal-line .year:hover,
-#example .year-selector .horizontal-line .year.active {
-    opacity: .5;
-}
-
-/* Training items related to the selected year */
-
-#example .carrusel {
-    position: relative;
-    overflow: hidden;
-}
-
-#example .year-content {
-    position: absolute;
-    opacity: 0;
-}
-
-#example .carrusel .year-content:first-child {
-    position: relative;
-    opacity: 1;
-}
-
-#example .year-content .year-content-wrapper {
-    position: relative;
-}
-
-#example .year-content .year-content-wrapper .title {
-    white-space: nowrap;
-    line-height: 200px;
-    margin: 0;
-}
-
-#example .year-content .year-content-wrapper .person {
-    margin: 0 auto;
-    width: 50%;
-}
 
 /* ────────────── */
 /*     COLORS     */
