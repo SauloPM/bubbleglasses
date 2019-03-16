@@ -39,13 +39,20 @@ p, li {
 h2 {
     display: block;
     color: dimgray;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 300;
     font-family: 'Lato', sans-serif;
+    text-align: center;
     text-transform: uppercase;
     letter-spacing: 5px;
     line-height: 30px;
     margin: 0 0 50px;
+}
+
+@media only screen and (min-width: 980px) {
+    h2 {
+        font-size: 20px;
+    }
 }
 
 h3 {
@@ -141,42 +148,89 @@ hr {
 /*     HEADER     */
 /* ────────────── */
 
-/* General */
-
-header {
+#header {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    /*background: linear-gradient(45deg, lightblue 50%, yellow 50%);*/
     position: relative;
     min-height: 100vh;
+
+    // Heading
+
+    .title {
+        display: block;
+        color: black;
+        font-size: 50px;
+        font-weight: bold;
+        font-family: 'Amuba', sans-serif;
+        text-align: center;
+        text-transform: lowercase;
+        line-height: 125px;
+        margin: 0;
+    }
+
+    hr {
+        margin: -35px auto 25px;
+    }
+
+    // Image
+
+    img {
+        margin: 0 auto;
+        width: 75%;
+    }
 }
 
-/* Heading */
+// Mobile First
 
-header h1 {
-    display: block;
-    color: black;
-    font-size: 125px;
-    font-weight: bold;
-    font-family: 'Amuba', sans-serif;
-    text-align: center;
-    text-transform: lowercase;
-    line-height: 125px;
-    margin: 0;
-    position: relative;
-    z-index: 25;
+@media only screen and (min-width: 480px) {
+
+    #header {
+
+        // Heading
+
+        .title {
+            font-size: 75px;
+        }
+        hr {
+            margin: -15px auto 25px;
+        }
+    }
 }
 
-header hr {
-    margin: 12px auto 25px;
+@media only screen and (min-width: 768px) {
+
+    #header {
+
+        // Heading
+        
+        .title {
+            font-size: 125px;
+        }
+
+        hr {
+            margin: 12px auto 25px;
+        }
+    }
 }
 
-/* Image */
+@media only screen and (min-width: 768px) {
 
-header img {
-    max-width: 40%;
+    #header {
+
+        // Heading
+
+        .title {
+            font-size: 125px;
+        }
+
+        // Image
+
+        img {
+            max-width: 40%;
+        }
+    }
 }
 
 /* ─────────────── */
