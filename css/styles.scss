@@ -119,9 +119,9 @@ hr {
 :-ms-input-placeholder  {color: lightgray; font-weight: 300; letter-spacing: 1px; text-transform: uppercase; transition: .5s}
 ::-ms-input-placeholder {color: lightgray; font-weight: 300; letter-spacing: 1px; text-transform: uppercase; transition: .5s}
 
-:focus::placeholder           {color: purple}
-:focus:-ms-input-placeholder  {color: purple}
-:focus::-ms-input-placeholder {color: purple}
+:focus::placeholder           {color: transparent}
+:focus:-ms-input-placeholder  {color: transparent}
+:focus::-ms-input-placeholder {color: transparent}
 
 // Utils
 
@@ -835,126 +835,125 @@ hr {
     }    
 }
 
-/* ─────────────── */
-/*     CONTACT     */
-/* ─────────────── */
-
-/* General */
+// ─────────────── //
+//     CONTACT     //
+// ─────────────── //
 
 #contact {
     position: relative;
     z-index: 100;
+
+    // Heading
+
+    h2 {
+        color: purple;
+    }
+
+    h3 {
+        color: purple;
+        margin-bottom: 100px;
+        opacity: .75;
+    }
+
+    // Form
+
+    form {
+        background: white;
+        box-shadow: 0 0 10px rgba(128,0,128,.5);
+        padding: 50px;
+        margin: 0 auto;
+        max-width: 750px;
+        border: 1px solid purple;
+
+        .input-wrapper {
+            position: relative;
+
+            input,
+            textarea {
+                display: block;
+                color: #767676;
+                font-size: 20px;
+                font-weight: 300px;
+                background: transparent;
+                border: none;
+                border-bottom: 1px solid lightgray;
+                letter-spacing: 0;
+                width: 100%;
+                margin: 0 auto;
+                margin-bottom: 25px;
+                padding: 15px;
+                padding-left: 45px;
+                transition: .5s;
+
+                &:focus {
+                    outline: none;
+                    border-bottom-color: purple;
+                }
+
+                &:focus + i {
+                    color: purple;
+                }
+            }
+
+            textarea {
+                height: 200px;
+                resize: none;
+            }
+        
+            i {
+                color: lightgray;
+                position: absolute;
+                left: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+                transition: .5s;
+            }
+
+            &:nth-child(4) i { top: 27px }
+        }
+
+        input[type="submit"] {
+            color: purple;
+            font-size: 20px;
+            font-weight: 400;
+            text-decoration: none;
+            text-transform: uppercase;
+            background-color: white;
+            border-radius: 2.5px;
+            border: 1.5px solid purple;
+            letter-spacing: 3px;
+            text-align: center;
+            text-transform: uppercase;
+            padding: 25px 70px;
+            margin: 50px 0 0;
+            width: 100%;
+            transition: .5s;
+        
+            &:hover {
+                color: white;
+                text-decoration: none;
+                background: purple;
+                border-color: purple;
+                cursor: pointer;
+            }
+        
+            &:focus {
+                box-shadow: none;
+            }
+        }
+    }
 }
 
-#contact form {
-    background: white;
-    box-shadow: 0 0 10px rgba(128,0,128,.5);
-    padding: 75px;
-    margin: 0 auto;
-    width: 750px;
-    border: 1px solid purple;
-}
+// Mobile First
 
-/* Heading */
+@media only screen and (min-width: $tablet) {
 
-#contact h2 {
-    margin-bottom: 100px;
-    opacity: .75;
-}
+    #contact {
 
-#contact h3 {
-    color: purple;
-}
-
-/* Input Icon */
-
-#contact .input-wrapper {
-    position: relative;
-}
-
-#contact .input-wrapper i {
-    color: lightgray;
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: .5s;
-}
-
-#contact .input-wrapper:nth-child(4) i {
-    top: 27px;
-}
-
-/* Form */
-
-#contact form {
-    position: relative;
-    z-index: 25;
-}
-
-#contact form input,
-#contact form textarea {
-    display: block;
-    color: #767676;
-    font-size: 20px;
-    font-weight: 300px;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid lightgray;
-    letter-spacing: 0;
-    width: 100%;
-    margin: 0 auto;
-    margin-bottom: 25px;
-    padding: 15px;
-    padding-left: 45px;
-    transition: .5s;
-}
-
-#contact form textarea {
-    height: 200px;
-    resize: none;
-}
-
-#contact form input:focus,
-#contact form textarea:focus {
-    outline: none;
-    border-bottom-color: purple;
-}
-
-#contact form input:focus + i,
-#contact form textarea:focus + i {
-    color: purple;
-}
-
-/* Button */
-
-#contact form input[type="submit"] {
-    color: purple;
-    font-size: 20px;
-    font-weight: 400;
-    text-decoration: none;
-    text-transform: uppercase;
-    background-color: white;
-    border-radius: 2.5px;
-    border: 1.5px solid purple;
-    letter-spacing: 3px;
-    text-align: center;
-    text-transform: uppercase;
-    margin: 50px 0 0;
-    padding: 25px 70px;
-    transition: .5s;
-}
-
-#contact form input[type="submit"]:hover {
-    color: white;
-    text-decoration: none;
-    background: purple;
-    border-color: purple;
-    cursor: pointer;
-}
-
-#contact form input[type="submit"]:focus {
-    box-shadow: none;
+        form {
+            padding: 75px;
+        }
+    }
 }
 
 /* ────────────── */
