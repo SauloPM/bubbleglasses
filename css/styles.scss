@@ -50,7 +50,7 @@ h1, h2 {
 @media only screen and (min-width: $mobile) {
     h1, h2 {
         font-size: 75px;
-        line-height: 175px;
+        line-height: 125px;
     }
 }
 
@@ -122,6 +122,50 @@ hr {
 :focus::placeholder           {color: transparent}
 :focus:-ms-input-placeholder  {color: transparent}
 :focus::-ms-input-placeholder {color: transparent}
+
+// Top Button
+
+.top-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white !important;
+    font-size: 25px;
+    text-decoration: none !important;
+    background: purple;
+    background: linear-gradient(to right, purple, indigo);
+    border: 1px solid purple;
+    border-radius: 50%;
+    padding: 0;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 100;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+    transition: .5s;
+
+    &:hover,
+    &:active,
+    &:visited {
+        color: purple !important;
+        background: white;
+    }
+
+    /* Icon */
+
+    i {
+        color: white;
+        transition: .5s;
+    }
+
+    &:hover i,
+    &:active i,
+    &:visited i {
+        color: purple;
+    }
+}
 
 // Utils
 
@@ -662,6 +706,7 @@ hr {
 
     h2 {
         color: lightgreen;
+        margin-bottom: 50px;
 
         span:first-child { color: lightblue }
         span:last-child  { color: lightpink }
@@ -858,7 +903,7 @@ hr {
 
     form {
         background: white;
-        box-shadow: 0 0 10px rgba(128,0,128,.5);
+        box-shadow: 0 10px 15px indigo;
         padding: 50px;
         margin: 0 auto;
         max-width: 750px;
@@ -929,6 +974,7 @@ hr {
             &:hover {
                 color: white;
                 text-decoration: none;
+                text-shadow: 1px 1px 0 indigo, 2px 2px 0 indigo, 3px 3px 0 indigo, 4px 4px 0 indigo, 5px 5px 0 indigo;
                 background: purple;
                 border-color: purple;
                 cursor: pointer;

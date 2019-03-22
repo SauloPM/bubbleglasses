@@ -3,6 +3,9 @@ $(document).ready(function() {
     // WOW
     new WOW().init(); 
 
+    // Top Button Revealing
+    showTopButton();
+
     // ─────────────── //
     //     EXAMPLE     //
     // ─────────────── //
@@ -96,3 +99,15 @@ $(document).ready(function() {
         setTimeout(function () { $("#testimonials .testimonial-wrapper.active").css("opacity", "1"); }, 1500);
     })
 });
+
+$(window).scroll(function() {
+    showTopButton();
+});
+
+// Top Button Revealing
+function showTopButton () {
+    if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150)
+        $(".top-button").css("opacity", "1");
+    else
+        $(".top-button").css("opacity", "0");
+}
