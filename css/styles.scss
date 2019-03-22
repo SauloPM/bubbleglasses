@@ -40,7 +40,7 @@ h1, h2 {
     color: black;
     font-size: 50px;
     font-weight: bold;
-    font-family: 'Amuba', sans-serif;
+    font-family: 'Lobster', sans-serif;
     text-align: center;
     text-transform: lowercase;
     line-height: 75px;
@@ -115,9 +115,9 @@ hr {
 
 // Placeholder
 
-::placeholder           {color: lightgray; font-weight: 300; letter-spacing: 1px; text-transform: uppercase; transition: .5s}
-:-ms-input-placeholder  {color: lightgray; font-weight: 300; letter-spacing: 1px; text-transform: uppercase; transition: .5s}
-::-ms-input-placeholder {color: lightgray; font-weight: 300; letter-spacing: 1px; text-transform: uppercase; transition: .5s}
+::placeholder           {color: lightgray; font-weight: 300; transition: .5s}
+:-ms-input-placeholder  {color: lightgray; font-weight: 300; transition: .5s}
+::-ms-input-placeholder {color: lightgray; font-weight: 300; transition: .5s}
 
 :focus::placeholder           {color: transparent}
 :focus:-ms-input-placeholder  {color: transparent}
@@ -391,6 +391,8 @@ hr {
             
             .sentence {
                 font-size: 18px;
+                font-weight: bold;
+                font-family: 'Lobster', sans-serif;
                 background: white;
                 border-radius: 5px;
                 white-space: nowrap;
@@ -562,19 +564,19 @@ hr {
             }
 
             &.green {
-                border: 1px solid springgreen;
+                border: 1px solid rgb(50,255,127);
 
                 .card-header {
-                    background: springgreen;
+                    background: rgb(50,255,127);
 
                     i {
-                        color: springgreen;
+                        color: rgb(50,255,127);
                         box-shadow: 0 5px 5px rgb(0,205,77);
                     }
                 }
 
                 .card-body li {
-                    border-bottom: 1px solid rgba(0,255,127,.25);
+                    border-bottom: 1px solid rgba(50,255,127,.25);
                 }
             }
 
@@ -604,13 +606,13 @@ hr {
                 }
         
                 h4 {
-                    color: rgba(255,255,255,.5);
-                    font-size: 25px;
-                    font-style: italic;
+                    color: white;
+                    font-size: 28px;
+                    font-family: 'Lobster', sans-serif;
                     font-weight: 900;
-                    text-transform: uppercase;
                     line-height: 30px;
                     margin: 45px 0 0;
+                    opacity: .65;
                 }
             }
     
@@ -714,7 +716,7 @@ hr {
         .testimonial {
             display: block;
             box-sizing: content-box;
-            color: rgba(255,255,255,.9);
+            color: rgba(255,255,255,.75);
             font-size: 30px;
             font-weight: normal;
             font-family: 'Lato', sans-serif;
@@ -736,14 +738,11 @@ hr {
         }
 
         .author {
-            color: yellow;
+            color: white;
             font-size: 50px;
             font-weight: bold;
-            font-family: 'Amuba', sans-serif;
+            font-family: 'Lobster', sans-serif;
             text-align: center;
-            text-transform: lowercase;
-            word-spacing: 20px;
-            opacity: .75;
         }
     }
 
@@ -801,7 +800,7 @@ hr {
                 background: rgba(255,255,255,.25);
                 position: relative;
                 bottom: 6px;
-                width: 325px;
+                width: 425px;
                 height: 10px;
                 position: absolute;
                 bottom: 0;
@@ -817,7 +816,7 @@ hr {
             .author {    
                 position: absolute;
                 left: 0;
-                bottom: -21px;
+                bottom: -12px;
                 width: 100%;
             }
         }
@@ -914,16 +913,14 @@ hr {
 
         input[type="submit"] {
             color: purple;
-            font-size: 20px;
-            font-weight: 400;
+            font-size: 25px;
+            font-weight: bold;
+            font-family: 'Lobster', sans-serif;
             text-decoration: none;
-            text-transform: uppercase;
             background-color: white;
             border-radius: 2.5px;
             border: 1.5px solid purple;
-            letter-spacing: 3px;
             text-align: center;
-            text-transform: uppercase;
             padding: 25px 70px;
             margin: 50px 0 0;
             width: 100%;
