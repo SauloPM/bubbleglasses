@@ -3,6 +3,9 @@ $(document).ready(function() {
     // WOW
     new WOW().init(); 
 
+    // Spinner
+    hideSpinner();
+
     // Remove WOW delays on mobile
     removeDelays();
 
@@ -107,6 +110,14 @@ $(document).ready(function() {
 function removeDelays() {
     if ($( window ).width() < 768)
         $('#reasons .card').removeAttr('style');
+}
+
+// Spinner hidding
+function hideSpinner () {
+    $("#preloader .rings").fadeOut(500, function () {
+        $("#preloader").delay(500).fadeOut(500);
+        setTimeout(function () { $("body").css("overflow", "visible"); }, 500);
+    });
 }
 
 $(window).scroll(function() {
