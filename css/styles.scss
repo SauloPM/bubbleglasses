@@ -211,14 +211,11 @@ hr {
     justify-content: center;
     flex-direction: column;
     position: relative;
-    min-height: 100vh;
+    height: 100vh;
+    min-height: 600px;
 
     h1  {
         color : black;
-    }
-
-    hr  {
-        margin: -35px auto 25px;
     }
 
     img {
@@ -226,21 +223,30 @@ hr {
     }
 
     .page-scroll {
-        color: rgba(100,100,100,.25) !important;
-        font-size: 250px;
+        color: rgba(105,105,105,.25) !important;
+        font-size: 150px;
         text-decoration: none;
         line-height: 100px;
         position: absolute;
-        bottom: 35px;
+        bottom: 25px;
         left: 50%;
         transform: translateX(-50%);
         transition: .5s;
     
-        &:hover {
+        &:visited {
+            color: rgba(105,105,105,.25) !important;
+        }
+
+        &:hover,
+        &:active {
             color: black !important;
         }
+
+        &:focus {
+            color: rgba(105,105,105,.25) !important;
+        }
     
-        i {
+        .icon {
             line-height: 100px;
         }
     }
@@ -248,10 +254,16 @@ hr {
 
 // Mobile First
 
-@media only screen and (min-width: $mobile) { #header hr  { margin   : -15px auto 25px } }
 @media only screen and (min-width: $tablet) {
-    #header hr  { margin   : 25px auto }
-    #header img { max-width: 40%             }
+    #header {
+        img {
+            max-width: 40%;
+        }
+        .page-scroll {
+            font-size: 250px;
+            bottom: 35px;
+        }
+    }
 }
 
 // ─────────────── //
@@ -263,7 +275,6 @@ hr {
     align-content: center;
     justify-content: center;
     flex-direction: column;
-    min-height: 100vh;
 
     a {
         text-decoration: none;
@@ -278,10 +289,10 @@ hr {
             background: linear-gradient(to right, purple, red);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            padding: 25px 0;
-            margin: 25px 0;
+            padding: 0;
+            margin: 0 0 25px;
             position: relative;
-    
+
             &::after {
                 content: '';
                 display: block;
@@ -291,19 +302,16 @@ hr {
                 bottom: 0;
                 width: 40%;
                 height: 2px;
-                transform: scaleX(0);
                 transition: .5s ease-in-out;
             }
-    
-            &:hover::after { transform: scaleX(1) }
         }
     }
 
     p {
         color: $text;
-        font-size: 20px;
+        font-size: 12px;
         font-weight: bold;
-        line-height: 35px;
+        line-height: 25px;
     }
 }
 
@@ -311,8 +319,18 @@ hr {
 
 @media only screen and (min-width: $tablet) {
     #welcome {
+        min-height: 100vh;
+
         a h1 {
             line-height: 200px;
+            padding: 25px 0;
+            margin: 25px 0;
+
+            &::after {
+                transform: scaleX(0);
+            }
+    
+            &:hover::after { transform: scaleX(1) }
         }
         p {
             font-size: 35px;
@@ -537,7 +555,6 @@ hr {
 #reasons {
     background: url(../img/bg/2.jpg) fixed no-repeat center;
     background-size: cover;
-    padding-bottom: 50px;
     position: relative;
 
     .overlay {
