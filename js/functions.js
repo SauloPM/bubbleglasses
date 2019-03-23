@@ -1,13 +1,12 @@
 $(document).ready(function() {
 
     // WOW
-    new WOW().init(); 
+    new WOW({
+        mobile: false
+    }).init(); 
 
     // Spinner
     hideSpinner();
-
-    // Remove WOW delays on mobile
-    removeDelays();
 
     // Top Button Revealing
     showTopButton();
@@ -87,30 +86,24 @@ $(document).ready(function() {
     // Carousel
     $("#testimonials .navigation").click(function () {
 
-        var pos   = $("#testimonials .testimonial-wrapper.active").attr("data-position");
-        var total = $("#testimonials .testimonial-wrapper").length;
+        var pos   = $("#testimonials .testimonial.active").attr("data-position");
+        var total = $("#testimonials .testimonial").length;
 
-        $("#testimonials .testimonial-wrapper.active").css("opacity", "0");
-        setTimeout(function () { $("#testimonials .testimonial-wrapper.active").removeClass("active") }, 1000);
+        $("#testimonials .testimonial.active").css("opacity", "0");
+        setTimeout(function () { $("#testimonials .testimonial.active").removeClass("active") }, 1000);
 
         if ( $(this).hasClass("navigation-left") && ( pos == 1 ) )
-            setTimeout(function () { $("#testimonials .testimonial-wrapper[data-position='" + total + "']").addClass("active"); }, 1000);
+            setTimeout(function () { $("#testimonials .testimonial[data-position='" + total + "']").addClass("active"); }, 1000);
         else if ( $(this).hasClass("navigation-right") && ( pos == total ) )
-            setTimeout(function () { $("#testimonials .testimonial-wrapper[data-position='1']").addClass("active"); }, 1000);
+            setTimeout(function () { $("#testimonials .testimonial[data-position='1']").addClass("active"); }, 1000);
         else if ( $(this).hasClass("navigation-right") )
-            setTimeout(function () { $("#testimonials .testimonial-wrapper[data-position='" + (++pos) + "']").addClass("active"); }, 1000);
+            setTimeout(function () { $("#testimonials .testimonial[data-position='" + (++pos) + "']").addClass("active"); }, 1000);
         else
-            setTimeout(function () { $("#testimonials .testimonial-wrapper[data-position='" + (--pos) + "']").addClass("active"); }, 1000);
+            setTimeout(function () { $("#testimonials .testimonial[data-position='" + (--pos) + "']").addClass("active"); }, 1000);
 
-        setTimeout(function () { $("#testimonials .testimonial-wrapper.active").css("opacity", "1"); }, 1500);
+        setTimeout(function () { $("#testimonials .testimonial.active").css("opacity", "1"); }, 1500);
     })
 });
-
-// WOW Delays Removal on Mobile
-function removeDelays() {
-    if ($( window ).width() < 768)
-        $('#reasons .card').removeAttr('style');
-}
 
 // Spinner hidding
 function hideSpinner () {
