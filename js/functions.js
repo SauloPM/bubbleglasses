@@ -3,6 +3,9 @@ $(document).ready(function() {
     // WOW
     new WOW().init(); 
 
+    // Remove WOW delays on mobile
+    removeDelays();
+
     // Top Button Revealing
     showTopButton();
 
@@ -99,6 +102,12 @@ $(document).ready(function() {
         setTimeout(function () { $("#testimonials .testimonial-wrapper.active").css("opacity", "1"); }, 1500);
     })
 });
+
+// WOW Delays Removal on Mobile
+function removeDelays() {
+    if ($( window ).width() < 768)
+        $('#reasons .card').removeAttr('style');
+}
 
 $(window).scroll(function() {
     showTopButton();
